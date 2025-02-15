@@ -15,7 +15,7 @@ new Promise((resolve, reject) => {
     
     // After 1 second, display the even numbers
     setTimeout(() => {
-        output.innerText = evenNumbers.join(', ');  // Convert array to a comma-separated string
+        output.innerText = `${evenNumbers}`;  // Convert array to a comma-separated string
         return evenNumbers; // Pass even numbers to the next promise
     }, 1000);  // 1-second delay
 })
@@ -25,7 +25,7 @@ new Promise((resolve, reject) => {
     
 
     setTimeout(() => {
-        output.innerText = multipliedNumbers.join(', '); 
+        output.innerText = `${multipliedNumbers}`; 
     }, 2000);  
 })
 .catch((err) => console.log('Error:', err));  // Catch any errors in the chain
