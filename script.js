@@ -1,9 +1,10 @@
 //your JS code here. If required.
 
-let arr = [1,2,3,4];
+
 let ouput = document.getElementById('ouput');
 
 new Promise((resolve , reject) => {
+	let arr = [1,2,3,4];
 	ouput.innerText = ``;
 	return resolve(arr);
 })
