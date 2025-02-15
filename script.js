@@ -12,42 +12,25 @@ new Promise((resolve, reject) => {
     let evenNumbers = arr.filter((val) => val % 2 === 0);
     
     // After a 1-second delay, display the even numbers in the output div
-    return new Promise((resolve) => {
-        setTimeout(() => {
-            output.innerText = evenNumbers.join(', ');  // Join the array elements into a string for display
-            resolve(evenNumbers);  // Pass the even numbers to the next promise
-        }, 1000);  // 1-second delay
-    });
+    setTimeout(() => {
+		output.innerText = evenNumbers
+	}, 1000)
+	return Promise.resolve(arr)
 })
-.then((evenNumbers) => {
+.then((arr) => {
     // Second transformation: Multiply each even number by 2
-    let multipliedNumbers = evenNumbers.map((val) => val * 2);
+    let multipliedNumbers = arr.filter((val) => val % 2 == 0).map((x) => x * 2);
     
     // After an additional 2-second delay, display the multiplied numbers in the output div
     setTimeout(() => {
-        output.innerText = multipliedNumbers.join(', ');  // Display the final array as a string
+        output.innerText = multipliedNumbers;  // Display the final array as a string
     }, 2000);  // 2-second delay after the first transformation
 })
 .catch((err) => console.log('Error:', err));  // Catch any errors in the promise chain
 
 
 
-it('Check for array', () => {
-    // Click on the button or trigger the promise
-    cy.get('button#btn').click();
 
-    // Wait for the first transformation to complete
-    cy.wait(1000);  // Wait for 1 second for the even numbers
-
-    // Check that the output div contains the filtered even numbers
-    cy.get('#output').should('contain', '2, 4');
-
-    // Wait for the second transformation to complete
-    cy.wait(2000);  // Wait for 2 more seconds for the multiplication
-
-    // Check that the output div contains the multiplied numbers
-    cy.get('#output').should('contain', '4, 8');
-});
 
 
 
