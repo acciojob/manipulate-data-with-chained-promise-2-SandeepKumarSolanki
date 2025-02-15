@@ -1,11 +1,11 @@
 // //your JS code here. If required.
 
 
-let output = document.getElementById('output'); // 
-
+let output = document.querySelector('#output') // 
+let arr = [1, 2, 3, 4];
 // Start with an initial promise that resolves with the array [1, 2, 3, 4]
 new Promise((resolve, reject) => {
-    let arr = [1, 2, 3, 4];
+    
 	output.innerText = ``;
     resolve(arr);  
 })
