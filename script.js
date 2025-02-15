@@ -6,19 +6,20 @@ let ouput = document.getElementById('output');
 new Promise((resolve , reject) => {
 	let arr = [1,2,3,4];
 	ouput.innerText = ``;
-	return resolve(arr);
+	resolve(arr);
 })
 .then((arr) =>{
 	let even = arr.filter((val) => val % 2 == 0);
 	setTimeout(()=>{
-		ouput.innerText = `${even}`;
+		ouput.innerText = even.join(', ');
 		return even;
 	},1000)
 })
-.then((data)=>{
+.then((even)=>{
+	let afterMulti = data.map((val)=> val*2);
 	setTimeout(()=> {
-		let afterMulti = data.map((val)=> val*2);
-		ouput.innerText = `${afterMulti}`
+		
+		ouput.innerText = afterMulti.join(', ')
 	},2000)
 })
 .catch(err => console.log(err));
