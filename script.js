@@ -1,7 +1,7 @@
 //your JS code here. If required.
 
 
-let ouput = document.getElementById('ouput');
+let ouput = document.getElementById('output');
 
 new Promise((resolve , reject) => {
 	let arr = [1,2,3,4];
