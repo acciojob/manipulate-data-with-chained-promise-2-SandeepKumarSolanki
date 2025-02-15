@@ -1,15 +1,16 @@
 // //your JS code here. If required.
 
 
-let output = document.getElementById('output'); // Corrected the typo in output ID
+let output = document.getElementById('output'); // 
 
 // Start with an initial promise that resolves with the array [1, 2, 3, 4]
 new Promise((resolve, reject) => {
     let arr = [1, 2, 3, 4];
-    resolve(arr);  // Resolve the array after 3 seconds to simulate async behavior
+	output.innerText = ``;
+    resolve(arr);  
 })
 .then((arr) => {
-    // First transformation: Filter out the odd numbers to get the even ones
+    //Filter out the odd numbers to get the even number
     let evenNumbers = arr.filter((val) => val % 2 === 0);
     
     // After 1 second, display the even numbers
@@ -19,13 +20,13 @@ new Promise((resolve, reject) => {
     }, 1000);  // 1-second delay
 })
 .then((evenNumbers) => {
-    // Second transformation: Multiply each even number by 2
+ 
     let multipliedNumbers = evenNumbers.map((val) => val * 2);
     
-    // After an additional 2 seconds, display the multiplied numbers
+
     setTimeout(() => {
-        output.innerText = multipliedNumbers.join(', '); // Display the new transformed array
-    }, 2000);  // 2-second delay after the first transformation
+        output.innerText = multipliedNumbers.join(', '); 
+    }, 2000);  
 })
 .catch((err) => console.log('Error:', err));  // Catch any errors in the chain
 
