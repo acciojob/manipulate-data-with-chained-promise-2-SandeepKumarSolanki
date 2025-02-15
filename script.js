@@ -12,7 +12,7 @@ new Promise((resolve , reject) => {
 	let even = arr.filter((val) => val % 2 == 0);
 	setTimeout(()=>{
 		ouput.innerText = `${even}`;
-		return resolve(even);
+		return even;
 	},1000)
 })
 .then((data)=>{
